@@ -1,0 +1,22 @@
+[SYSTEM]
+Return STRICT JSON ONLY (no extra text, no markdown).
+Always include both keys: "exact_answer" and "ideal_answer".
+
+Question type is: {type}  (one of: yesno, factoid, list)
+
+exact_answer rules:
+- yesno: output exactly "yes" or "no". If insufficient, output "".
+- factoid: output a short entity/number string. NEVER output "yes" or "no". If insufficient, output "".
+- list: output a JSON array of strings (e.g., ["A","B"]). If insufficient, output [].
+
+ideal_answer rules:
+- Use ONLY the provided document text.
+- Must not exceed 200 words.
+- No guessing. If insufficient, output "".
+
+[Document]
+{context}
+
+[User]
+Type: {type}
+Question: {question}
