@@ -59,6 +59,18 @@ flowchart LR
 
 ## 실행 안내
 
+평가 셀은 `rag_pipeline/` 패키지로도 분리했습니다. `embeddings.py`는 임베딩·풀링, `prompts.py`는 프롬프트 로딩, `evaluator.py`는 평가, `__main__.py`는 실행 인자를 담당합니다. 기존 Chroma 인덱스를 사용하는 평가 진입점이며 인덱스 구축은 아래 노트북 흐름을 사용합니다.
+
+```bash
+pip install -r requirements.txt
+python -m rag_pipeline --help
+python -m rag_pipeline --dataset data/bioasq_factoid.csv --chroma-dir 500-100/embeddinggemma/chroma_db --collections gemma_C gemma_M gemma_X --k 5 10 20 --dry-run
+```
+
+입력 경로를 확인한 후 `--dry-run`을 제거하면 실제 평가를 실행합니다. 실행 설정은 출력 폴더에 JSON으로 남습니다. `--dry-run`은 파일·CSV 열·인자만 검사하며 모델 호환성이나 Ollama 연결을 확인하지 않습니다. 핵심 평가 계산은 원본을 유지했습니다. 의존성 버전 고정과 전체 실험 재현은 검증되지 않았습니다.
+
+빠른 입력 검증 테스트: `python -m unittest rag_pipeline.test_cli -v`
+
 두 노트북은 **선택 실행용 연구 기록**입니다. 서로 다른 모델 실험, Colab 명령, 중간 점검 셀이 함께 있으므로 `Run All`로 완전 재현되는 패키지는 아닙니다.
 
 1. [데이터 안내](data/README.md)에 따라 BioASQ JSON 및 PubMed CSV를 로컬에 준비합니다.

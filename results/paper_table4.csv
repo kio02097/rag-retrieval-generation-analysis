@@ -1,0 +1,4 @@
+question_type,retrieval_model,retrieval_pooling,retrieval_k,paper_retrieval_score,generation_model,generation_pooling,generation_k,generation_metric,generation_score,source,note
+factoid,BGE,CLS,20,0.6304,BGE,Mean,20,MRR,0.1131,manuscript_p13_table4,prose_reports_0.6390_retrieval_metric_unspecified
+list,Solon,Mean,20,0.6377,Solon,Mean,10,F1,0.1975,manuscript_p13_table4,retrieval_metric_unspecified
+yesno,Solon,Mean,20,0.6356,S-BERT,CLS,5,Macro-F1,0.7698,manuscript_p13_table4,retrieval_metric_unspecified

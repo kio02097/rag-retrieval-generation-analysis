@@ -16,3 +16,4 @@ data/*.json
 data/*.csv
 pubmed_title_abstract.csv
 tmp/
+outputs/

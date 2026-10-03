@@ -1,0 +1,13 @@
+# Dependencies of the extracted evaluator, not a lockfile of the original experiment.
+numpy
+pandas
+tqdm
+scikit-learn
+torch
+sentence-transformers
+transformers
+chromadb
+langchain-core
+langchain-community
+langchain-chroma
+PyYAML
